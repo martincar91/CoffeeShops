@@ -59,30 +59,38 @@ function ClickEvents(){
 
 function PrintData(data){
 
-	var itemTemplate = '<div class="item  col-xs-12 col-lg-6">';
-      	itemTemplate +=  '<div class="thumbnail">';
-        itemTemplate +=  '<img class="group list-group-image" src="{0}" alt="" />';
-        itemTemplate +=  '<div class="caption">';
-        itemTemplate +=  '<h4 class="group inner list-group-item-heading">{1}</h4>';
-        itemTemplate +=  '<p class="group inner list-group-item-text"> Marked as {2}</p>';
-        itemTemplate +=  '<div class="row">';
-        itemTemplate +=  '<div class="col-xs-12 col-md-6">';
-        itemTemplate +=  '<p class="lead">{3} meters away from you</p>';
-        itemTemplate +=  '</div>';
-        itemTemplate +=  '</div>';
-        itemTemplate +=  '</div>';
-        itemTemplate +=  '</div>';
-        itemTemplate +=  '</div>';
+    if(data.response.groups[0].items.length != 0) {
+		var itemTemplate = '<div class="item  col-xs-12 col-lg-6">';
+	      	itemTemplate +=  '<div class="thumbnail">';
+	        itemTemplate +=  '<img class="group list-group-image" src="{0}" alt="" />';
+	        itemTemplate +=  '<div class="caption">';
+	        itemTemplate +=  '<h4 class="group inner list-group-item-heading">{1}</h4>';
+	        itemTemplate +=  '<p class="group inner list-group-item-text"> Marked as {2}</p>';
+	        itemTemplate +=  '<div class="row">';
+	        itemTemplate +=  '<div class="col-xs-12 col-md-6">';
+	        itemTemplate +=  '<p class="lead">{3} meters away from you</p>';
+	        itemTemplate +=  '</div>';
+	        itemTemplate +=  '</div>';
+	        itemTemplate +=  '</div>';
+	        itemTemplate +=  '</div>';
+	        itemTemplate +=  '</div>';
 
-    var items = "";
+	    var items = "";
 
-	$.each(data.response.groups[0].items, function(e,v){
-		var venue = v.venue;
-		var photo = v.venue.featuredPhotos.items[0];
-		items += String.format(itemTemplate, photo.prefix + "400x250"+ photo.suffix, venue.name, venue.price.message, venue.location.distance);
-	});
+		$.each(data.response.groups[0].items, function(e,v){
+			var venue = v.venue;
+			var photo = v.venue.featuredPhotos.items[0];
+			items += String.format(itemTemplate, photo.prefix + "400x250"+ photo.suffix, venue.name, venue.price.message, venue.location.distance);
+		});
 
-	$("#resultContainer").html(items);
+		$("#resultContainer").html(items);
+	}
+	else
+	{
+		$(".modalTitle").text("Info");
+		$(".modalMessage").text("It seems there are no open Coffee shops near you.");
+		$("modal").modal("show");
+	}
 }
 
 String.format = function() {

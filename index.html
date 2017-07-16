@@ -1,9 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Coffee shops</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src='./js/CoffeeShops.js'></script>
+	<link rel="stylesheet" type="text/css" href="./css/CoffeeShops.css">
 </head>
 <body>
+	<div class="container">
+		<!-- error modal -->
+		<div class="row">
+			<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+			  <div class="modal-dialog modal-lg">
+			    <div class="modal-content">
+			    
+			      <div class="modal-body">
+			     
+			      <H2>Error</H2>
+			      <h4>You have to share your location in order to get the results</h4>
+			     
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		</div>
 
+		<!-- listContainer -->
+		<div class="coffeeShopsContainer">
+		    <div class="well well-sm">
+		        <strong>Display</strong>
+		        <div class="btn-group">
+		            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+		            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+		                class="glyphicon glyphicon-th"></span>Grid</a>
+		        </div>
+		    </div>
+
+		    <div id="resultContainer" class="row list-group">
+		       <!--  <div class="item  col-xs-12 col-lg-6">
+		            <div class="thumbnail">
+		                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+		                <div class="caption">
+		                    <h4 class="group inner list-group-item-heading">
+		                        Product title</h4>
+		                    <p class="group inner list-group-item-text">
+		                        Product description... Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+		                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+		                    <div class="row">
+		                        <div class="col-xs-12 col-md-6">
+		                            <p class="lead">
+		                                $21.000</p>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div> -->
+		    </div>
+		</div>
+	</div>
 </body>
 </html>
